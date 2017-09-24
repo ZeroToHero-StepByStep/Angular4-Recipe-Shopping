@@ -20,6 +20,14 @@ export class ShoppingListService implements  OnInit{
     return this.ingredients;
   }
 
+  addIngredients(ingredients: Ingredient[]){
+    // for ( let ingredient of ingredients ) {
+    //   this.addIngredient(ingredient) ;
+    // }
+    this.ingredients.push(...ingredients) ;
+    this.ingredientsChanged.emit(this.ingredients.slice()) ;
+  }
+
   ngOnInit(): void {
   }
 
