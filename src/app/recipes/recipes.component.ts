@@ -1,12 +1,18 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from './recipe.model';
+import {RecipeService} from './recipe.service';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styles: []
+  styles: [],
+  providers:[RecipeService]
 })
 
-export class RecipesComponent {
+export class RecipesComponent implements OnInit{
+
   selectedRecipe : Recipe ;
+
+  ngOnInit(): void {
+  }
 
 }
