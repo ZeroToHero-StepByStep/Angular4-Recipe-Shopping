@@ -29,6 +29,7 @@ export class ShoppingListService implements  OnInit{
   }
 
   ngOnInit(): void {
+
   }
 
 }
