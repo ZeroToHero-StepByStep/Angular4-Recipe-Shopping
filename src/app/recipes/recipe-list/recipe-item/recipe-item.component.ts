@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Ingredient} from '../../../shared/ingredient.model';
 
 @Component({
@@ -9,6 +9,7 @@ import {Ingredient} from '../../../shared/ingredient.model';
 export class RecipeItemComponent implements OnInit {
   @Input() recipeItem: { name: string, description: string, imgagePath: string , ingredients:Ingredient[] };
 
+  @Input() index: number ;
   ngOnInit() {
   }
 
