@@ -5,6 +5,7 @@ export class ShoppingListService implements  OnInit{
 
   constructor(){}
 
+  startedEditing = new Subject<number>();
   ingredientsChanged = new Subject<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
