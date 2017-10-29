@@ -7,7 +7,7 @@ import {Ingredient} from '../../../shared/ingredient.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipeItem: { name: string, description: string, imgagePath: string , ingredients:Ingredient[] };
+  @Input() recipeItem: { name: string, description: string, imagePath: string , ingredients:Ingredient[] };
 
   @Input() index: number ;
   ngOnInit() {

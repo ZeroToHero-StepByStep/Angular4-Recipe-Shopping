@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RecipeService} from '../recipe.service';
+import {Recipe} from '../recipe.model';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class RecipeEditComponent implements OnInit {
     if (this.editMode) {
       const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;
-      recipeImagePath = recipe.imgagePath;
+      recipeImagePath = recipe.imagePath;
+    // console.log('Init Form-recipeImagePath :'+recipeImagePath) ;
       recipeDescription = recipe.description;
       if (recipe['ingredients']) {
         for (let ingredient of  recipe.ingredients) {
@@ -62,7 +64,18 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.recipeForm);
+    // const newRecipe =  new Recipe(
+    //   this.recipeForm.value['name'],
+    //   this.recipeForm.value['description'],
+    //   this.recipeForm.value['imagePath'],
+    //   this.recipeForm.value['ingredients']) ;
+    //   console.log(this.recipeForm.value) ;
+    if(this.editMode){
+      console.log('on submit imagepath:'+this.recipeForm.value.imagePath ) ;
+      this.recipeService.updateRecipe(this.id ,this.recipeForm.value) ;
+    }else {
+      this.recipeService.addRecipe(this.recipeForm.value) ;
+    }
   }
 
 
