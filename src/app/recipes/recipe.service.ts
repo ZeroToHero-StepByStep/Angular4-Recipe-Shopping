@@ -24,7 +24,7 @@ export class RecipeService{
     new Recipe(
       'New test recipe',
       'this is simple a test',
-      'https://www.bbcgoodfood.com/sites/default/files/styles/carousel_medium/public/recipe-collections/collection-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg?itok=naGPMoRQ',
+      'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--488691_11.jpg?itok=ExaTspz1',
       [
         new Ingredient('Buns' ,2 ) ,
         new Ingredient('Meat' ,1)
@@ -53,12 +53,12 @@ export class RecipeService{
  }
 
  updateRecipe ( index : number , newRecipe : Recipe ) {
-   console.log('update recipe name:'+ newRecipe.name);
-   console.log('update recipe imagePath:'+ newRecipe.imagePath);
-   console.log('update recipe description:'+ newRecipe.description);
     this.recipes[index] = newRecipe ;
     this.recipesChanged.next(this.recipes.slice()) ;
  }
 
-
+  deleteRecipe(index: number){
+   this.recipes.splice(index,1) ;
+   this.recipesChanged.next(this.recipes.slice());
+  }
 }
